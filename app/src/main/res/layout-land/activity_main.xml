@@ -5,12 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF8"
+    android:background="#060"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/card1"
-        android:layout_width="100dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:contentDescription="Hello World!"
         android:src="@drawable/c_10_of_spades"
