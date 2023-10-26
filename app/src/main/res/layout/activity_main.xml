@@ -8,16 +8,78 @@
     android:background="#FF8"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/mainText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Start!"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <ImageView
         android:id="@+id/card1"
-        android:layout_width="100dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="Hello World!"
+        android:layout_margin="2dp"
+        android:contentDescription="Card 1"
+        android:src="@drawable/c_10_of_spades"
+        app:layout_constraintBottom_toTopOf="@id/card3"
+        app:layout_constraintEnd_toStartOf="@id/card2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainText" />
+
+    <ImageView
+        android:id="@+id/card2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="2dp"
+        android:contentDescription="Card 2"
+        android:src="@drawable/c_10_of_spades"
+        app:layout_constraintBottom_toTopOf="@id/card3"
+        app:layout_constraintStart_toEndOf="@id/card1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainText"/>
+
+    <ImageView
+        android:id="@+id/card3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="2dp"
+        android:contentDescription="Card 3"
+        android:src="@drawable/c_10_of_spades"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card1"
+        app:layout_constraintBottom_toTopOf="@id/card4"/>
+
+    <ImageView
+        android:id="@+id/card4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="2dp"
+        android:contentDescription="Card 4"
         android:src="@drawable/c_10_of_spades"
         app:layout_constraintBottom_toTopOf="@id/btn_shuffle"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/card5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/card3"/>
+
+    <ImageView
+        android:id="@+id/card5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="2dp"
+        android:contentDescription="Card 5"
+        android:src="@drawable/c_10_of_spades"
+        app:layout_constraintTop_toBottomOf="@id/card3"
+        app:layout_constraintStart_toEndOf="@id/card4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_shuffle"
+        />
 
     <Button
         android:id="@+id/btn_shuffle"
@@ -25,8 +87,8 @@
         android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/card1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
