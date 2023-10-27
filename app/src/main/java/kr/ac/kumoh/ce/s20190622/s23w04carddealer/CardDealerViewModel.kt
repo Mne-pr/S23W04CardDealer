@@ -8,8 +8,18 @@ import kotlin.random.Random
 
 class CardDealerViewModel : ViewModel() {
     private var _cards = MutableLiveData<IntArray>(IntArray(5) { -1 })
+    private var _stateString = MutableLiveData<String>("Start!")
+
     val cards: LiveData<IntArray>
         get() = _cards
+
+    val states: LiveData<String>
+        get() = _stateString
+
+    fun setStates(data: String){
+        _stateString = MutableLiveData<String>(data)
+        Log.i("what States","${data} -> ${_stateString.value}")
+    }
 
     fun shuffle() {
         var num = 0
