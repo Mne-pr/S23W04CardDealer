@@ -221,7 +221,7 @@ class MainActivity : AppCompatActivity() {
             }
             newCardsNum = it
             // 어플 시작, 화면 회전하자마자 검사하는 것 방지
-            if (firstTime != 0) {model.setStates(detectCards());}
+            if (firstTime != 0) {model.setStates(detectCards())}
             else {firstTime = 1}
             printRes()
         })
