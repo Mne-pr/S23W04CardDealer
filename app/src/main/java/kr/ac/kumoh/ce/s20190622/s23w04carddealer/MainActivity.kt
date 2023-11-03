@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private var newCards = Array(5){ 0 }
     private var newCardsNum = IntArray(5){ 0 }
+    private var firstTime = 0
 
     companion object {
         val ROYAL_STRAIGHT_FLUSH: CardsState = CardsState(0, "!!!!!Royal Straight Flush!!!!!")
@@ -219,8 +220,9 @@ class MainActivity : AppCompatActivity() {
                 )
             }
             newCardsNum = it
-
-            if (model.cards.value?.get(0) != -1) {model.setStates(detectCards())} // 어플 시작하자마자 검사하는 것 방지
+            // 어플 시작, 화면 회전하자마자 검사하는 것 방지
+            if (firstTime != 0) {model.setStates(detectCards());}
+            else {firstTime = 1}
             printRes()
         })
 
