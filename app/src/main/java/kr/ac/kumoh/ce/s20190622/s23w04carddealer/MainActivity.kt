@@ -3,6 +3,7 @@ package kr.ac.kumoh.ce.s20190622.s23w04carddealer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import kr.ac.kumoh.ce.s20190622.s23w04carddealer.databinding.ActivityMainBinding
 
@@ -246,6 +247,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onPause() {
+        val dialog = supportFragmentManager.findFragmentByTag("ResultDialog") as DialogFragment?
+        dialog?.dismiss()
+        super.onPause()
+    }
     private fun getCardName(c: Int) : String {
         var shape = when (c / 13) {
             0 -> "spades"
