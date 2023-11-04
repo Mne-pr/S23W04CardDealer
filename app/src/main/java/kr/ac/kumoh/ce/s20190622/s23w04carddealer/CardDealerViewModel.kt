@@ -1,11 +1,9 @@
 package kr.ac.kumoh.ce.s20190622.s23w04carddealer
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlin.random.Random
-//import kr.ac.kumoh.ce.s20190622.s23w04carddealer.MainActivity
 
 class CardDealerViewModel : ViewModel() {
     private var _cards        = MutableLiveData(IntArray(5) { -1 })
@@ -20,16 +18,9 @@ class CardDealerViewModel : ViewModel() {
         _stateCounter.value!![v] += 1
         _stateCounter.value!![13] += 1
     }
-    fun stateCounterInit(){
-        _stateCounter.value = IntArray(13){ 0 }
-    }
     fun setStates(data: CardsState){
-        _stateString = MutableLiveData<CardsState>(data)
+        _stateString = MutableLiveData(data)
         stateCounterAdd(_stateString.value!!.code)
-//        Log.i("what States","${data} -> ${_stateString.value!!.cardText}")
-//        for (t in 0..12){
-//            Log.i("stateeee ${t}",_stateCounter.value!!.get(t).toString())
-//        }
     }
 
     fun shuffle() {
@@ -37,14 +28,9 @@ class CardDealerViewModel : ViewModel() {
         val newCards = IntArray(5) { -1 }
 
         for (i in newCards.indices) {
-            do {
-                num = Random.nextInt(52)
-            } while (num in newCards)
+            do { num = Random.nextInt(52) } while (num in newCards)
             newCards[i] = num
         }
-        newCards.sort()
-        _cards.value = newCards // important
+        newCards.sort(); _cards.value = newCards
     }
-
-
 }

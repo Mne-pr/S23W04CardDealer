@@ -1,30 +1,20 @@
 package kr.ac.kumoh.ce.s20190622.s23w04carddealer
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
-import androidx.lifecycle.ViewModelProvider
 
 class ResultDialog(private val model: CardDealerViewModel) : DialogFragment() {
     private val stateList = arrayOf(
-        R.id.royal_straight_flush_value,
-        R.id.back_straight_flush_value,
-        R.id.straight_flush_value,
-        R.id.four_card_value,
-        R.id.full_house_value,
-        R.id.flush_value,
-        R.id.mountain_value,
-        R.id.back_straight_value,
-        R.id.straight_value,
-        R.id.triple_value,
-        R.id.two_pair_value,
-        R.id.one_pair_value,
-        R.id.top_value
+        R.id.royal_straight_flush_value, R.id.back_straight_flush_value,
+        R.id.straight_flush_value, R.id.four_card_value, R.id.full_house_value,
+        R.id.flush_value, R.id.mountain_value, R.id.back_straight_value,
+        R.id.straight_value, R.id.triple_value, R.id.two_pair_value,
+        R.id.one_pair_value, R.id.top_value
     )
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,7 +28,6 @@ class ResultDialog(private val model: CardDealerViewModel) : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val btnOk: Button = view.findViewById<Button>(R.id.btn_ok)
-
         model.counts.observe(this, {
             var i = 0;
             view.findViewById<TextView>(R.id.text_total).setText("${it.get(13)}")
@@ -50,8 +39,6 @@ class ResultDialog(private val model: CardDealerViewModel) : DialogFragment() {
             }
         })
 
-        btnOk.setOnClickListener{
-            dismiss()
-        }
+        btnOk.setOnClickListener{ dismiss() }
     }
 }
