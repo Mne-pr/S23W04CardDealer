@@ -29,7 +29,7 @@ class ResultDialog(private val model: CardDealerViewModel) : DialogFragment() {
 
         val btnOk: Button = view.findViewById<Button>(R.id.btn_ok)
         model.counts.observe(this, {
-            var i = 0;
+            var i = 0
             view.findViewById<TextView>(R.id.text_total).setText("${it.get(13)}")
             for (s in stateList){
                 if (it.get(13) == 0) {view.findViewById<TextView>(s).setText("0 (0.0000%)")}

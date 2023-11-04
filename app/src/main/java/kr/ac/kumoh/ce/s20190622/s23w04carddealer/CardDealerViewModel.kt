@@ -19,10 +19,9 @@ class CardDealerViewModel : ViewModel() {
         _stateCounter.value!![13] += 1
     }
     fun setStates(data: CardsState){
-        _stateString = MutableLiveData(data)
+        _stateString = MutableLiveData<CardsState>(data)
         stateCounterAdd(_stateString.value!!.code)
     }
-
     fun shuffle() {
         var num = 0
         val newCards = IntArray(5) { -1 }
@@ -30,7 +29,7 @@ class CardDealerViewModel : ViewModel() {
         for (i in newCards.indices) {
             do { num = Random.nextInt(52) } while (num in newCards)
             newCards[i] = num
-        }
-        newCards.sort(); _cards.value = newCards
+        }; newCards.sort()
+        _cards.value = newCards
     }
 }
